@@ -15,4 +15,3 @@ leveraging data analytics and machine learning algorithms.
 
 ### Review, price and amenities count
 ![alt text](image-2.png)
->>>>>>> ea70f313f18797eb74799cfb40dbfd3de58c12b3
