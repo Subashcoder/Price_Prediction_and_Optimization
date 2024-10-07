@@ -1,1 +1,11 @@
 .env
+Data/April/*
+Data/Dec_2023/*
+Data/February/*
+Data/January/*
+Data/June/*
+Data/March/*
+Data/May/*
+Data/Nov_2023/*
+Data/Oct_2023/*
+Data/listings.csv
