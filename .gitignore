@@ -1,4 +1,7 @@
 .env
+Data/July/*
+Data/August/*
+Data/September/*
 Data/April/*
 Data/Dec_2023/*
 Data/February/*
@@ -9,3 +12,4 @@ Data/May/*
 Data/Nov_2023/*
 Data/Oct_2023/*
 Data/listings.csv
+Data/Merge/*
