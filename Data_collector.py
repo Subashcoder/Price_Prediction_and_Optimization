@@ -25,19 +25,19 @@ def Merging_files(file_name):
     combined_df = pd.concat(dataframes, ignore_index=True)
     return combined_df
 
-# listing_merge = Merging_files('listings.csv.gz')
-# print('Merge successfully')
-# reviews_merge = Merging_files('reviews.csv.gz')
-# print('Merge successfully')
-# calendar_merge = Merging_files('calendar.csv.gz')
-# print('Merge successfully')
+listing_merge = Merging_files('listings.csv.gz')
+print('Merge successfully')
+reviews_merge = Merging_files('reviews.csv.gz')
+print('Merge successfully')
+calendar_merge = Merging_files('calendar.csv.gz')
+print('Merge successfully')
 
-# listing_merge.to_csv('./Data/Merge/listing.csv.gz', index=False)
-# print('Saved successfully')
-# reviews_merge.to_csv('./Data/Merge/reviews.csv.gz', index=False)
-# print('Saved successfully')
-# calendar_merge.to_csv('./Data/Merge/calendar.csv.gz', index=False)
-# print('Saved successfully')
+listing_merge.to_csv('./Data/Merge/listing.csv.gz', index=False)
+print('Saved successfully')
+reviews_merge.to_csv('./Data/Merge/reviews.csv.gz', index=False)
+print('Saved successfully')
+calendar_merge.to_csv('./Data/Merge/calendar.csv.gz', index=False)
+print('Saved successfully')
 
 # function to change the str to pd_datetime
 def datetime_conversion(df, date_column):
