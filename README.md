@@ -1,11 +1,11 @@
 # AirBnb master tool
 
-### Price Range
+### Price Ranges
 ![alt text](image.png)
 
 ### Amenities_Count relation with price
 ![alt text](image-1.png)
 
 
-### Review, price and amenities count
+### Reviews, price and amenities count
 ![alt text](image-2.png)
