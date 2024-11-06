@@ -1,4 +1,4 @@
-# AirBnb master tool
+# AirBnb master tools
 
 ### Price Ranges
 ![alt text](image.png)
