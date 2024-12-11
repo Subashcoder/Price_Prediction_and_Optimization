@@ -1,0 +1,173 @@
+/* General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #fcf7f7; /* Unified background color */
+    color: black;
+}
+
+/* Header Styling */
+header {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin-bottom: 20px; /* Space between header and content */
+}
+
+/* Footer Styling */
+footer {
+    background-color: #09090a; /* Darker background for footer */
+    color: #bbb;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px; /* Space above footer */
+    width: 100%;
+}
+
+/* Navbar Links */
+.navbar-brand {
+    font-weight: bold;
+    color: white !important;
+    margin-left: 1px;
+}
+
+.nav-link {
+    color: white !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #f8c31c !important; /* Highlight on hover */
+}
+
+/* Headings and Links */
+h1, h2 {
+    color: #f8c31c; /* Highlighted text for headings */
+    margin: 0; /* Remove extra margins */
+}
+
+p, a {
+    color: black; /* Ensure text visibility */
+}
+
+/* Ensure .kpi-card has a white background */
+.kpi-card {
+    text-align: center;
+    background-color: black !important; /* Force white */
+    border: 3px solid #f8c31c;
+    color: white !important;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Chart Containers */
+.chart-container {
+    height: 400px; /* Fixed height for charts */
+    width: 100%; /* Full width of the container */
+    margin: 0; /* No margin */
+    padding: 0; /* No padding */
+}
+
+/* Row Styling */
+.row.no-gutters {
+    margin: 0; /* No margin between rows */
+    padding: 0; /* No padding inside grid */
+}
+
+.row.no-gutters [class*="col-"] {
+    padding: 0; /* Completely remove padding from columns */
+}
+
+/* Table Styling */
+.table-bordered th, .table-bordered td {
+    border: 1px solid #444; /* Subtle borders for a clean table look */
+    color: white;
+}
+
+/* Cards */
+.card {
+    border: 3px solid #f8c31c; /* Consistent bright yellow border */
+    margin: 0; /* No spacing around cards */
+    padding: 0; /* Remove padding inside the card */
+    background-color: #1c1e21; /* Dark card background */
+    border-radius: 5px;
+    color: white; /* Rounded edges */
+}
+
+/* Remove spacing between cards */
+.card + .card {
+    margin-top: 0;
+}
+
+/* Responsive Layout for Smaller Screens */
+@media (max-width: 768px) {
+    .kpi-card {
+        margin-bottom: 20px; /* Add spacing below cards */
+    }
+    .chart-container {
+        height: 300px; /* Adjust height for smaller screens */
+    }
+}
+
+/* Add Responsive Font Scaling */
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.2rem;
+}
+
+p {
+    font-size: 0.9rem; /* Increase font size */
+    font-weight: bold; /* Make text bold */
+    line-height: 1.5; /* Adjust line spacing for better readability */
+}
+h3 {
+    font-size: 1rem; /* Increase font size */
+    font-weight: bold; /* Make text bold */
+    line-height: 1;
+    color: white; /* Adjust line spacing for better readability */
+}
+
+
+.custom-lead {
+    font-size: 1.5rem; /* Larger font size */
+    font-weight: bold; /* Make it bold */
+    color: white; /* Match the header text color */
+    margin-top: 10px; /* Optional spacing adjustments */
+}
+
+
+/* Heading 4 Styling */
+h4 {
+    font-size: 1.5rem; /* Increase font size */
+    font-weight: bold; /* Make text bold */
+    color: #02083f; /* Optional: Change the text color for better visibility */
+}
+
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Section Background Styling */
+.bg-light {
+    background-color: #f9f9f9 !important;
+}
+
+/* Title Styling */
+.text-warning {
+    color: #f8c31c !important;
+}
+
+.text-primary {
+    color: #007bff !important;
+}
+

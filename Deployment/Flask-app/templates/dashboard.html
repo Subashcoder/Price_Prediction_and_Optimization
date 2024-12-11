@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Title -->
+    <header class="text-center">
+        <h1 class="py-3">Neighborhood Analysis Dashboard</h1>
+    </header>
+
+    <!-- Filter Controls -->
+    <form method="POST" action="/Dashboard">
+        <div class="row mb-4">
+            <!-- Neighborhood Filter -->
+            <div class="col-md-6">
+                <label for="neighbourhood" class="form-label">Select Neighborhood:</label>
+                <select id="neighbourhood" name="neighbourhood" class="form-control">
+                    <option value="All">All</option>
+                    {% for neighborhood in unique_neighborhoods %}
+                    <option value="{{ neighborhood }}">{{ neighborhood }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <!-- Host ID Filter -->
+            <div class="col-md-6">
+                <label for="host_id" class="form-label">Enter Host ID:</label>
+                <input type="number" id="host_id" name="host_id" class="form-control" placeholder="Enter Host ID">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-end">
+                <button type="submit" class="btn btn-primary">Filter</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- KPI Cards -->
+    <div class="row no-gutters">
+        <div class="col-md-3">
+            <div class="card kpi-card">
+                <h2>Number of Listings</h2>
+                <h3>{{ graphs['total_count'] }}</h3>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card kpi-card">
+                <h2>Neighborhood With Highest Listings</h2>
+                <h3>{{ graphs['first_neighborhood'] }}</h3>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card kpi-card">
+                <h2>Number of Reviews</h2>
+                <h3>{{ graphs['total_reviews'] }}</h3>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card kpi-card">
+                <h2>Minimum Nights</h2>
+                <h3>{{ graphs['avg_minimum_nights']|round(2) }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Graphs -->
+    <div class="row no-gutters mt-2">
+        <div class="col-md-6">
+            <div class="card">
+                <div id="bar-chart" class="chart-container"></div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div id="line-chart" class="chart-container"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row no-gutters mt-2">
+        <div class="col-md-6">
+            <div class="card">
+                <div id="map-chart" class="chart-container"></div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div id="host-chart" class="chart-container"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Plotly Graph Rendering Scripts -->
+<script src="https://cdn.plot.ly/plotly-2.20.0.min.js"></script>
+<script>
+    // Render Bar Chart
+    const barChart = {{ graphs['bar_chart']|safe }};
+    Plotly.react('bar-chart', barChart.data, barChart.layout);
+
+    // Render Line Chart
+    const lineChart = {{ graphs['line_chart']|safe }};
+    Plotly.react('line-chart', lineChart.data, lineChart.layout);
+
+    // Render Map Chart
+    const mapChart = {{ graphs['map_chart']|safe }};
+    Plotly.react('map-chart', mapChart.data, mapChart.layout);
+
+    // Render Host Chart
+    const hostChart = {{ graphs['host_chart']|safe }};
+    Plotly.react('host-chart', hostChart.data, hostChart.layout);
+</script>
+{% endblock %}

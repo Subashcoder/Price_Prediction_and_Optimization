@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid mt-5">
+    <h1 class="text-center mb-4">Recommendation System</h1>
+
+    <!-- Host ID Input Form -->
+    <form method="POST" class="mb-4">
+        <div class="mb-3">
+            <label for="host_id" class="form-label">Enter Host ID</label>
+            <input type="number" class="form-control" id="host_id" name="host_id" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Get Recommendations</button>
+    </form>
+
+    <!-- Error Message -->
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
+
+    <!-- Recommendations Table -->
+    {% if recommendations %}
+    <h2 class="mt-4">Top 10 Similar Neighborhood Based on similarity</h2>
+    <table class="table table-bordered table-dark">
+        <thead>
+            <tr>
+                <th>Neighbourhood</th>
+                <th>Similarity Score</th>
+                <th>Average Pricee</th>
+                <th>Bookings</th>
+                <th>Number of similar listings</th>
+                <th>Revenue per Month</th>
+                <th>std_ROI</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for recommendation in recommendations %}
+            <tr>
+                <td>{{ recommendation['neighbourhood_cleansed'] }}</td>
+                <td>{{ recommendation['mean_similarity']|round(2) }}</td>
+                <td>${{ recommendation['mean price']|round(2) }}</td>
+                <td>{{ recommendation['Bookings'] }}</td>
+                <td>{{ recommendation['Number of similar listings']|round(2) }}</td>
+                <td>{{ recommendation['mean_ROI']|round(2) }}</td>
+                <td>{{ recommendation['std_ROI']|round(2) }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2 class="mt-4">Top 10 Neighborhood Recommendations</h2>
+    <table class="table table-bordered table-dark">
+        <thead>
+            <tr>
+                <th>Neighbourhood</th>
+                <th>Price</th>
+                <th>Bookings</th>
+                <th>Revenue Per Month</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for recommendation in Prediction_month %}
+            <tr>
+                <td>{{ recommendation['recommended_neighborhood'] }}</td>
+                <td>${{ recommendation['price'] }}</td>
+                <td>{{ recommendation['availability_30'] }}</td>
+                <td>${{ recommendation['predicted_ROI'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+
+    <!-- Graphs in a Tight Grid -->
+    <div class="row no-gutters">
+        <!-- Card 1 -->
+        <div class="col-md-6 border">
+            <div class="card no-padding">
+                <div id="plotly-chart-1" class="chart-container"></div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-md-6 border">
+            <div class="card no-padding">
+                <div id="plotly-chart-2" class="chart-container"></div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-6 border">
+            <div class="card no-padding">
+                <div id="plotly-chart-3" class="chart-container"></div>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="col-md-6 border">
+            <div class="card no-padding">
+                <div id="plotly-chart-4" class="chart-container"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Plotly CDN -->
+<script src="https://cdn.plot.ly/plotly-2.20.0.min.js"></script>
+
+<script>
+    // Load Graphs into Respective Cards
+    const fig1 = {{ fig_json1 | safe }};
+    Plotly.react('plotly-chart-1', fig1.data, fig1.layout);
+
+    const fig2 = {{ fig_json2 | safe }};
+    Plotly.react('plotly-chart-2', fig2.data, fig2.layout);
+
+    const fig3 = {{ fig_json3 | safe }};
+    Plotly.react('plotly-chart-3', fig3.data, fig3.layout);
+
+    const fig4 = {{ fig_json4 | safe }};
+    Plotly.react('plotly-chart-4', fig4.data, fig4.layout);
+</script>
+{% endblock %}
