@@ -1,4 +1,12 @@
 # 🏡 Airbnb Smart Data Platform  
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
+![SQL](https://img.shields.io/badge/SQL-Data%20Engineering-orange)
+![AWS](https://img.shields.io/badge/AWS-Cloud-yellow?logo=amazonaws)
+![Docker](https://img.shields.io/badge/Docker-Containerized-blue?logo=docker)
+![Airflow](https://img.shields.io/badge/Airflow-Orchestration-red?logo=apacheairflow)
+![Status](https://img.shields.io/badge/Status-Active-success)
+![Project](https://img.shields.io/badge/Type-Data%20Engineering-blue)
+![Architecture](https://img.shields.io/badge/Architecture-Batch%20%2B%20Streaming-purple)
 ### End-to-End Data + ML System for Pricing Optimization & Market Intelligence
 
 ![Dashboard](https://github.com/user-attachments/assets/38baf503-dba3-4148-b5e1-876225fb6a30)
